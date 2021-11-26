@@ -12,10 +12,11 @@
  * GNU General Public License for more details.
  *
  * Aaron Brice <aaron@tastycactus.com>
+ * Colin Kinloch <colin@kinlo.ch>
  *
  */
 
-package com.tastycactus.timesheet;
+package ch.kinlo.timesheetdx;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -49,9 +50,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
-import com.tastycactus.timesheet.TimesheetAppWidgetProvider;
-import com.tastycactus.timesheet.TimesheetDatabase;
-import com.tastycactus.timesheet.MergeAdapter;
+import ch.kinlo.timesheetdx.TimesheetAppWidgetProvider;
+import ch.kinlo.timesheetdx.TimesheetDatabase;
+import ch.kinlo.timesheetdx.MergeAdapter;
 
 public class TimeEntriesActivity extends TabActivity
 {

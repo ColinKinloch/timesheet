@@ -12,10 +12,11 @@
  * GNU General Public License for more details.
  *
  * Aaron Brice <aaron@tastycactus.com>
+ * Colin Kinloch <colin@kinlo.ch>
  *
  */
 
-package com.tastycactus.timesheet;
+package ch.kinlo.timesheetdx;
 
 import android.app.ListActivity;
 import android.app.Activity;
@@ -38,8 +39,8 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import com.tastycactus.timesheet.TimesheetAppWidgetProvider;
-import com.tastycactus.timesheet.TimesheetDatabase;
+import ch.kinlo.timesheetdx.TimesheetAppWidgetProvider;
+import ch.kinlo.timesheetdx.TimesheetDatabase;
 
 public class TimesheetActivity extends ListActivity {
     TimesheetDatabase m_db;

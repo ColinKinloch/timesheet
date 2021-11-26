@@ -1,4 +1,4 @@
-package com.tastycactus.timesheet;
+package ch.kinlo.timesheetdx;
 
 import android.test.ActivityInstrumentationTestCase;
 
@@ -9,13 +9,13 @@ import android.test.ActivityInstrumentationTestCase;
  * <p/>
  * To run this test, you can type:
  * adb shell am instrument -w \
- * -e class com.tastycactus.timesheet.TimesheetActivityTest \
- * com.tastycactus.timesheet.tests/android.test.InstrumentationTestRunner
+ * -e class ch.kinlo.timesheetdx.TimesheetActivityTest \
+ * ch.kinlo.timesheetdx.tests/android.test.InstrumentationTestRunner
  */
 public class TimesheetActivityTest extends ActivityInstrumentationTestCase<TimesheetActivity> {
 
     public TimesheetActivityTest() {
-        super("com.tastycactus.timesheet", TimesheetActivity.class);
+        super("ch.kinlo.timesheetdx", TimesheetActivity.class);
     }
 
 }

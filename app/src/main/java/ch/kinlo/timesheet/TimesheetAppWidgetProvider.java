@@ -12,10 +12,11 @@
  * GNU General Public License for more details.
  *
  * Aaron Brice <aaron@tastycactus.com>
+ * Colin Kinloch <colin@kinlo.ch>
  *
  */
 
-package com.tastycactus.timesheet;
+package ch.kinlo.timesheetdx;
 
 import android.app.IntentService;
 import android.app.PendingIntent;
@@ -34,7 +35,7 @@ import android.preference.PreferenceManager;
 
 import android.widget.RemoteViews;
 
-import com.tastycactus.timesheet.TimesheetDatabase;
+import ch.kinlo.timesheetdx.TimesheetDatabase;
 
 public class TimesheetAppWidgetProvider extends AppWidgetProvider 
 {
