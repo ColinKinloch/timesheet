@@ -18,6 +18,7 @@
 package com.tastycactus.timesheet;
 
 import android.app.ListActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -32,6 +33,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -75,10 +77,20 @@ public class TimesheetActivity extends ListActivity {
             }
         });
 
+
         setListAdapter(m_ca);
         getListView().setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         registerForContextMenu(getListView());
+
+
+        Button compat_menu_button = this.findViewById(R.id.compat_menu_button);
+        compat_menu_button.setOnClickListener(new View.OnClickListener() {
+             public void onClick(View v) {
+                 // Code here executes on main thread after user presses button
+                 ((Activity) v.getContext()).openOptionsMenu();
+             }
+         });
 
         // Set preference defaults if they haven't been set
         if (!prefs.contains("alphabetise_tasks")) {

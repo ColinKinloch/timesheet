@@ -1,6 +1,22 @@
-bin/
-gen/
+# Build
+*.apk
+
+# Cache
+bin
+gen
+out
+
+# Gradle
+*.gradle
+*.jar
+# gradlew
+# gradlew.bat
+build
+
+# Configuration
 local.properties
-.project
-.classpath
-*.swp
+
+# Other
+*.iml
+.idea
+.vs
