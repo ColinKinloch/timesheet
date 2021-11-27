@@ -8,7 +8,7 @@ out
 
 # Gradle
 *.gradle
-*.jar
+# *.jar
 # gradlew
 # gradlew.bat
 build
