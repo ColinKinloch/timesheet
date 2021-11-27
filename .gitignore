@@ -7,7 +7,7 @@ gen
 out
 
 # Gradle
-*.gradle
+# *.gradle
 # *.jar
 # gradlew
 # gradlew.bat

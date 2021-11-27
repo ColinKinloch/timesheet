@@ -8,8 +8,8 @@
     <string name="export_activity">Export to CSV</string>
     <string name="task_prompt">Select a Task:</string>
     <string name="help_summary">
-        \n<b>Welcome to Timesheet!</b>\n\n
-        To start, add some tasks to Timesheet.
+        \n<b>Welcome to Timesheet DX!</b>\n\n
+        To start, add some tasks to Timesheet DX.
         Tasks can be billable tasks such as "Project Documentation" or
         unbillable tasks such as "Lunch".  Use the "Add Task" menu 
         option to add a task.\n
