@@ -111,15 +111,15 @@ public class TimesheetAppWidgetProvider extends AppWidgetProvider
             updateViews.setTextViewText(R.id.current_task, m_db.getTaskName(task_id));
 
             Intent intent = new Intent(context, ToggleActiveService.class);
-            PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
+            PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_MUTABLE);
             updateViews.setOnClickPendingIntent(R.id.select_task, pendingIntent);
 
             intent = new Intent(context, NextTaskService.class);
-            pendingIntent = PendingIntent.getService(context, 0, intent, 0);
+            pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_MUTABLE);
             updateViews.setOnClickPendingIntent(R.id.next_task, pendingIntent);
 
             intent = new Intent(context, PrevTaskService.class);
-            pendingIntent = PendingIntent.getService(context, 0, intent, 0);
+            pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_MUTABLE);
             updateViews.setOnClickPendingIntent(R.id.prev_task, pendingIntent);
 
             return updateViews;
