@@ -10,6 +10,8 @@ def getGitSha = {
   return stdout.toString().trim()
 }
 
+ext.APP_NAME = 'Timesheet DX'
+
 android {
     compileSdkVersion 31
 
@@ -24,6 +26,7 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        resValue "string", "app_name", APP_NAME
     }
 
     signingConfigs {
@@ -53,7 +56,7 @@ android {
     productFlavors {
         blue {}
         green {
-            resValue "string", "app_name", "TimesheetDX" + " Test"
+            resValue "string", "app_name", APP_NAME + " Test"
             applicationIdSuffix ".test"
             versionNameSuffix "-" + getGitSha()
 
