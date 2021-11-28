@@ -6,7 +6,9 @@
         android:summary="Select which day starts the week"
         android:entries="@array/days"
         android:entryValues="@array/days_index"
-        android:dialogTitle="Week starts on" />
+        android:dialogTitle="Week starts on"
+        android:defaultValue="1"
+        />
     <CheckBoxPreference
         android:key="alphabetise_tasks"
         android:title="List Tasks Alphabetically"
