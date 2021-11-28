@@ -4,11 +4,7 @@
 
 An exciting evolution in timesheeting with context buttonless technology.
 
-<img alt="Screenshot_20211126-203302_Timesheet_DX" src="https://user-images.githubusercontent.com/334272/143627672-e4fc6b36-4bcf-4e17-a3ed-fa830ef62575.png" width="400px" />
-
-
-
-
+<img alt="Screenshot_20211126-203302_Timesheet_DX" src="https://user-images.githubusercontent.com/334272/143780181-a2a0ef1f-a7b8-4f9f-b8d0-e7d5eb5f702b.png" width="320px" /> <img alt="Screenshot_20211126-203302_Timesheet_DX" src="https://user-images.githubusercontent.com/334272/143780182-6c70b857-fe28-43d1-afb8-2e2713bd5853.png" width="320px" />
 
 A fork of https://github.com/ambrice/timesheet
 
