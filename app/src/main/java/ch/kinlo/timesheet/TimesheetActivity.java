@@ -84,15 +84,6 @@ public class TimesheetActivity extends ListActivity {
 
         registerForContextMenu(getListView());
 
-
-        Button compat_menu_button = this.findViewById(R.id.compat_menu_button);
-        compat_menu_button.setOnClickListener(new View.OnClickListener() {
-             public void onClick(View v) {
-                 // Code here executes on main thread after user presses button
-                 ((Activity) v.getContext()).openOptionsMenu();
-             }
-         });
-
         // Set preference defaults if they haven't been set
         if (!prefs.contains("alphabetise_tasks")) {
             prefs.edit().putBoolean("alphabetise_tasks", false);
