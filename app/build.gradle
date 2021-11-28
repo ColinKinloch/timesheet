@@ -1,12 +1,21 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
+def getGitSha = {
+  def stdout = new ByteArrayOutputStream()
+  exec {
+    commandLine 'git', 'rev-parse', '--short', 'HEAD'
+    standardOutput = stdout
+  }
+  return stdout.toString().trim()
+}
+
 android {
     compileSdkVersion 31
 
     defaultConfig {
-        minSdkVersion 7
-        targetSdkVersion 7
+        minSdkVersion 10
+        targetSdkVersion 31
 
         versionCode 14
         versionName '1.7'
@@ -37,6 +46,17 @@ android {
 
         debug {
             //applicationIdSuffix '.debug'
+        }
+    }
+
+    flavorDimensions "color"
+    productFlavors {
+        blue {}
+        green {
+            resValue "string", "app_name", "TimesheetDX" + " Test"
+            applicationIdSuffix ".test"
+            versionNameSuffix "-" + getGitSha()
+
         }
     }
 
