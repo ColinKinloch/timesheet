@@ -118,6 +118,10 @@ public class TimesheetAppWidgetProvider extends AppWidgetProvider
             pendingIntent = PendingIntent.getService(context, 0, intent, 0);
             updateViews.setOnClickPendingIntent(R.id.next_task, pendingIntent);
 
+            intent = new Intent(context, PrevTaskService.class);
+            pendingIntent = PendingIntent.getService(context, 0, intent, 0);
+            updateViews.setOnClickPendingIntent(R.id.prev_task, pendingIntent);
+
             return updateViews;
         }
     }
@@ -205,6 +209,57 @@ public class TimesheetAppWidgetProvider extends AppWidgetProvider
             }
             SharedPreferences.Editor edit = m_prefs.edit();
             edit.putLong("app_task", next_task_id);
+            edit.commit();
+
+            // Update the GUI
+            startService(new Intent(this, UpdateService.class));
+        }
+    }
+
+    public static class PrevTaskService extends IntentService
+    {
+        TimesheetDatabase m_db;
+        SharedPreferences m_prefs=null;
+
+        public PrevTaskService() {
+            super("TimesheetAppWidgetProvider$PrevTaskService");
+        }
+
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            m_db = new TimesheetDatabase(this);
+            m_prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        }
+
+        @Override
+        public void onDestroy() {
+            m_db.close();
+            super.onDestroy();
+        }
+
+        @Override
+        public void onHandleIntent(Intent intent) {
+            long task_id = m_prefs.getLong("app_task", -1);
+            long prev_task_id = -1;
+            Cursor c = m_db.getTasks(m_prefs.getBoolean("alphabetise_tasks", false));
+            while (!c.isAfterLast()) {
+                long c_task_id = c.getLong(c.getColumnIndex("_id"));
+                if (c_task_id == task_id) {
+                    // Found the current task, find the prev one
+                    if (c.isFirst()) {
+                        c.moveToLast();
+                        prev_task_id = c.getLong(c.getColumnIndex("_id"));
+                    } else {
+                        c.moveToPrevious();
+                        prev_task_id = c.getLong(c.getColumnIndex("_id"));
+                    }
+                    break;
+                }
+                c.moveToNext();
+            }
+            SharedPreferences.Editor edit = m_prefs.edit();
+            edit.putLong("app_task", prev_task_id);
             edit.commit();
 
             // Update the GUI
