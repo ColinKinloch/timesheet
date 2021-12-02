@@ -35,7 +35,7 @@
       android:name=".TimesheetPreferences"
       />
     <receiver
-      android:name=".TimesheetAppWidgetProvider"
+      android:name=".TimesheetAppWidgetProviderK"
       android:exported="true"
       >
       <intent-filter>
