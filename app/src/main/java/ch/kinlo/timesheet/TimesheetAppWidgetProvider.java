@@ -35,6 +35,19 @@ import android.preference.PreferenceManager;
 
 import android.widget.RemoteViews;
 
+import android.os.Build;
+
+import android.graphics.Canvas;
+import android.graphics.Bitmap;
+
+import android.graphics.drawable.Drawable;
+
+import androidx.core.content.ContextCompat;
+
+import android.util.Log;
+import android.util.Pair;
+import java.util.List;
+
 import ch.kinlo.timesheetdx.TimesheetDatabase;
 
 public class TimesheetAppWidgetProvider extends AppWidgetProvider 
@@ -52,7 +65,7 @@ public class TimesheetAppWidgetProvider extends AppWidgetProvider
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds)
     {
-        context.startService(new Intent(context, UpdateService.class));
+        //context.startService(new Intent(context, UpdateService.class));
     }
 
     public static class UpdateService extends IntentService
@@ -102,6 +115,34 @@ public class TimesheetAppWidgetProvider extends AppWidgetProvider
 
             RemoteViews updateViews = new RemoteViews(context.getPackageName(), R.layout.app_widget);
 
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+              updateViews.setImageViewResource(R.id.prev_task, R.drawable.baseline_expand_less_36);
+              updateViews.setImageViewResource(R.id.next_task, R.drawable.baseline_expand_more_36);
+            } else {
+              List<Pair<Integer, Integer>> bum = List.of(
+                Pair.create(R.drawable.baseline_expand_less_36, R.id.prev_task),
+                Pair.create(R.drawable.baseline_expand_more_36, R.id.next_task)
+              );
+              for (Pair<Integer, Integer> p: bum) {
+                Drawable d = ContextCompat.getDrawable(context, p.first);
+                Bitmap b = Bitmap.createBitmap(d.getIntrinsicWidth(),
+                                               d.getIntrinsicHeight(),
+                                               Bitmap.Config.ARGB_8888);
+                Canvas c = new Canvas(b);
+                d.setBounds(0, 0, c.getWidth(), c.getHeight());
+                d.draw(c);
+                updateViews.setImageViewBitmap(p.second, b);
+              }
+              Drawable d = ContextCompat.getDrawable(context, R.drawable.baseline_expand_less_36);
+              Bitmap b = Bitmap.createBitmap(d.getIntrinsicWidth(),
+                                             d.getIntrinsicHeight(),
+                                             Bitmap.Config.ARGB_8888);
+              Canvas c = new Canvas(b);
+              d.setBounds(0, 0, c.getWidth(), c.getHeight());
+              d.draw(c);
+              updateViews.setImageViewBitmap(R.id.prev_task, b);
+            }
+            
             if (task_id == current_id && task_id > 0) {
                 updateViews.setImageViewResource(R.id.select_task, R.drawable.vert_toggle_on);
             } else {

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+  android:width="108dp"
+  android:height="108dp"
+  android:viewportWidth="54"
+  android:viewportHeight="54"
+  >
+  <group android:scaleX="54" android:scaleY="54" >
+    <path android:fillColor="#92b1ea" android:pathData="M 0,0 v 1 h 1 v -1 z" />
+  </group>
+  <group android:translateX="19" android:translateY="12" >
+    <path
+      android:fillColor="#33000000"
+      android:pathData="
+        M 17,1
+        l 24,24
+        l -21,21
+        l -21,-21
+        z
+        "
+      />
+    <path
+      android:fillColor="#ffd794"
+      android:pathData="
+        M 1,0
+        a 2 2 90 0 0 -2 2
+        v 22
+        a 2 2 90 0 0 2 2
+        h 14
+        a 2 2 90 0 0 2 -2
+        v -22
+        a 2 2 90 0 0 -2 -2
+        z
+        "
+      />
+    <path
+      android:strokeColor="#000" android:strokeWidth="1"
+      android:pathData="
+        M   1,5
+        h  14
+        m -14,4
+        h  14
+        m -14,4
+        h  14
+        m -14,4
+        h  14
+        m -14,4
+        h  14
+        "
+      />
+  </group>
+  
+</vector>
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+
+>
+  <item android:drawable="@drawable/clock_backing" />
+  <item android:drawable="@drawable/clock_s" />
+</layer-list>
+

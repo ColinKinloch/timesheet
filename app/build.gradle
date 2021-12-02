@@ -16,16 +16,14 @@ android {
     compileSdkVersion 31
 
     defaultConfig {
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 31
 
         versionCode 14
         versionName '1.7'
 
         multiDexEnabled true
-        vectorDrawables {
-            useSupportLibrary true
-        }
+        // vectorDrawables.useSupportLibrary = true
         resValue "string", "app_name", APP_NAME
     }
 
@@ -81,4 +79,13 @@ android {
 }
 
 dependencies {
+  def xcore_version = "1.7.0"
+  def xappcompat_version = "1.4.0"
+  
+  implementation "androidx.core:core:$xcore_version"
+
+  implementation "androidx.appcompat:appcompat:$xappcompat_version"
+  // For loading and tinting drawables on older versions of the platform
+  implementation "androidx.appcompat:appcompat-resources:$xappcompat_version"
+
 }

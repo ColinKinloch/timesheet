@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+  android:width="108dp"
+  android:height="108dp"
+  android:viewportWidth="54"
+  android:viewportHeight="54"
+  >
+  <!-- Timecard -->
+  <group android:translateX="19" android:translateY="12" >
+    <!-- Shadow -->
+    <path
+      android:fillColor="#33000000"
+      android:pathData="
+        M 17,1
+        l 24,24
+        l -21,21
+        l -21,-21
+        z
+        "
+      />
+  </group>
+  
+</vector>
