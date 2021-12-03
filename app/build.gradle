@@ -85,8 +85,10 @@ dependencies {
   def xfragment_version = "1.4.0"
 
 
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.ext.kotlinVersion"
   
   implementation "androidx.core:core:$xcore_version"
+  implementation "androidx.core:core-ktx:$xcore_version"
 
   implementation "androidx.appcompat:appcompat:$xappcompat_version"
   // For loading and tinting drawables on older versions of the platform

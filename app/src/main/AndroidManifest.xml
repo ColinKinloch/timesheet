@@ -46,6 +46,11 @@
         android:resource="@xml/timesheet_widget_info"
         />
     </receiver>
+    <receiver
+      android:name=".TimesheetReceiver"
+      android:exported="true"
+      >
+    </receiver>
     <service android:name=".TimesheetAppWidgetProvider$UpdateService" />
     <service android:name=".TimesheetAppWidgetProvider$ToggleActiveService" />
     <service android:name=".TimesheetAppWidgetProvider$NextTaskService" />
