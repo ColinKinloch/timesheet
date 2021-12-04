@@ -62,6 +62,11 @@ class TimesheetAppWidgetProviderK : AppWidgetProvider() {
         0,
         prevTaskIntent,
         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        
+      val appPendingIntent: PendingIntent = PendingIntent.getActivity(context, 0,
+        Intent(context, TimesheetActivity::class.java),
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
 
       // Get the layout for the widget and attach an on-click listener
       // to the button.
@@ -70,6 +75,7 @@ class TimesheetAppWidgetProviderK : AppWidgetProvider() {
           setOnClickPendingIntent(R.id.select_task, toggleTaskPendingIntent)
           setOnClickPendingIntent(R.id.next_task, nextTaskPendingIntent)
           setOnClickPendingIntent(R.id.prev_task, prevTaskPendingIntent)
+          setOnClickPendingIntent(R.id.current_task, appPendingIntent)
         }
         //val views = RemoteViews(context.getPackageName(), R.layout.app_widget)
       
