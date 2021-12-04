@@ -53,7 +53,7 @@ public class TaskEditActivity extends Activity {
             entry.close();
         } else {
             m_row_id = -1;
-            billable = false;
+            billable = true;
             title = "";
         }
 
