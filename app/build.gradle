@@ -13,69 +13,69 @@ def getGitSha = {
 ext.APP_NAME = 'Timesheet DX'
 
 android {
-    compileSdkVersion 31
+  compileSdkVersion 31
 
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 31
+  defaultConfig {
+    minSdkVersion 14
+    targetSdkVersion 31
 
-        versionCode 14
-        versionName '1.7'
+    versionCode 14
+    versionName '1.7'
 
-        multiDexEnabled true
-        // vectorDrawables.useSupportLibrary = true
-        resValue "string", "app_name", APP_NAME
+    multiDexEnabled true
+    // vectorDrawables.useSupportLibrary = true
+    resValue "string", "app_name", APP_NAME
+  }
+
+  signingConfigs {
+    release {
+      storeFile file('../store.jks')
+      storePassword System.getenv('STORE_PASSWORD')
+      keyAlias System.getenv('KEY_ALIAS')
+      keyPassword System.getenv('KEY_PASSWORD')
+    }
+  }
+
+  buildTypes {
+    release {
+      shrinkResources true
+      minifyEnabled true
+
+      proguardFiles file('proguard-rules.pro')
+      signingConfig signingConfigs.release
     }
 
-    signingConfigs {
-        release {
-            storeFile file('../store.jks')
-            storePassword System.getenv('STORE_PASSWORD')
-            keyAlias System.getenv('KEY_ALIAS')
-            keyPassword System.getenv('KEY_PASSWORD')
-        }
+    debug {
+      //applicationIdSuffix '.debug'
     }
+  }
 
-    buildTypes {
-        release {
-            shrinkResources true
-            minifyEnabled true
+  flavorDimensions "color"
+  productFlavors {
+    blue {}
+    green {
+      resValue "string", "app_name", APP_NAME + " Test"
+      applicationIdSuffix ".test"
+      versionNameSuffix "-" + getGitSha()
 
-            proguardFiles file('proguard-rules.pro')
-            signingConfig signingConfigs.release
-        }
-
-        debug {
-            //applicationIdSuffix '.debug'
-        }
     }
+  }
 
-    flavorDimensions "color"
-    productFlavors {
-        blue {}
-        green {
-            resValue "string", "app_name", APP_NAME + " Test"
-            applicationIdSuffix ".test"
-            versionNameSuffix "-" + getGitSha()
+  buildFeatures {
+    //viewBinding true
+  }
 
-        }
-    }
+  lintOptions {
+    disable 'MissingTranslation'
+    abortOnError false
+  }
 
-    buildFeatures {
-        //viewBinding true
-    }
+  compileOptions {
+    //coreLibraryDesugaringEnabled true
 
-    lintOptions {
-        disable 'MissingTranslation'
-        abortOnError false
-    }
-
-    compileOptions {
-        //coreLibraryDesugaringEnabled true
-
-        //sourceCompatibility JavaVersion.VERSION_1_8
-        //targetCompatibility JavaVersion.VERSION_1_8
-    }
+    //sourceCompatibility JavaVersion.VERSION_1_8
+    //targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
 
 dependencies {
