@@ -401,7 +401,7 @@ public class TimeEntriesActivity extends TabActivity
                 m_totals_adapter.notifyDataSetChanged();
                 // Update the App Widget in case we deleted the currently-active
                 // time entry
-                startService(new Intent(this, TimesheetAppWidgetProvider.UpdateService.class));
+                sendBroadcast(new Intent(this, TimesheetAppWidgetProvider.class));
                 return true;
             case EDIT_TIME_ENTRY_MENU_ITEM:
                 Intent i = new Intent(this, TimeEntryEditActivity.class);

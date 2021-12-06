@@ -140,7 +140,7 @@ public class TimesheetActivity extends ListActivity {
             m_db.changeTask(id);
         }
         // Update the App Widget
-        startService(new Intent(this, TimesheetAppWidgetProvider.UpdateService.class));
+        sendBroadcast(new Intent(this, TimesheetAppWidgetProvider.class));
     }
 
     @Override
@@ -179,7 +179,7 @@ public class TimesheetActivity extends ListActivity {
                 m_db.deleteTask(info.id);
                 m_task_cursor.requery();
                 // Update the App Widget, if necessary
-                startService(new Intent(this, TimesheetAppWidgetProvider.UpdateService.class));
+                sendBroadcast(new Intent(this, TimesheetAppWidgetProvider.class));
                 return true;
         }
         return false;
@@ -206,7 +206,7 @@ public class TimesheetActivity extends ListActivity {
         if (resultCode == RESULT_OK) {
             m_task_cursor.requery();
             // Update the App Widget, if necessary
-            startService(new Intent(this, TimesheetAppWidgetProvider.UpdateService.class));
+            sendBroadcast(new Intent(this, TimesheetAppWidgetProvider.class));
         }
     }
 

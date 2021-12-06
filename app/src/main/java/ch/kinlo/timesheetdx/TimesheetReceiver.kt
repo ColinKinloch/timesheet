@@ -75,7 +75,7 @@ class TimesheetReceiver: BroadcastReceiver() {
     
     db.close()
     
-    val replyIntent = Intent(context, TimesheetAppWidgetProviderK::class.java)
+    val replyIntent = Intent(context, TimesheetAppWidgetProvider::class.java)
     
     context.sendBroadcast(replyIntent)
   }

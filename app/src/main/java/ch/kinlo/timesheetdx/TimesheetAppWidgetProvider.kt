@@ -23,10 +23,10 @@ import android.util.Log
 
 import androidx.core.content.ContextCompat
 
-class TimesheetAppWidgetProviderK : AppWidgetProvider() {
+class TimesheetAppWidgetProvider : AppWidgetProvider() {
   private fun onUpdate(context: Context) {
     val manager = AppWidgetManager.getInstance(context)
-    val component = ComponentName(context.getPackageName(), TimesheetAppWidgetProviderK::class.java.name)
+    val component = ComponentName(context.getPackageName(), TimesheetAppWidgetProvider::class.java.name)
     val ids = manager.getAppWidgetIds(component);
     onUpdate(context, manager, ids);
   }

@@ -35,7 +35,7 @@
       android:name=".TimesheetPreferences"
       />
     <receiver
-      android:name=".TimesheetAppWidgetProviderK"
+      android:name=".TimesheetAppWidgetProvider"
       android:exported="true"
       >
       <intent-filter>
@@ -51,9 +51,5 @@
       android:exported="true"
       >
     </receiver>
-    <service android:name=".TimesheetAppWidgetProvider$UpdateService" />
-    <service android:name=".TimesheetAppWidgetProvider$ToggleActiveService" />
-    <service android:name=".TimesheetAppWidgetProvider$NextTaskService" />
-    <service android:name=".TimesheetAppWidgetProvider$PrevTaskService" />
   </application>
 </manifest> 
