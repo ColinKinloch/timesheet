@@ -89,14 +89,14 @@ class TimesheetAppWidgetProviderK : AppWidgetProvider() {
             Pair(R.id.next_task, R.drawable.baseline_expand_more_36),
           )
         for (p in bum) {
-          var d = ContextCompat.getDrawable(context, p.first)!!
+          var d = ContextCompat.getDrawable(context, p.second)!!
           var b = Bitmap.createBitmap(d.getIntrinsicWidth(),
                                       d.getIntrinsicHeight(),
                                          Bitmap.Config.ARGB_8888)
           var c = Canvas(b)
           d.setBounds(0, 0, c.getWidth(), c.getHeight())
           d.draw(c)
-          views.setImageViewBitmap(p.second, b)
+          views.setImageViewBitmap(p.first, b)
         }
       }
 
@@ -118,7 +118,6 @@ class TimesheetAppWidgetProviderK : AppWidgetProvider() {
         edit.commit()
       }
       
-      db.close()
       
       if (taskId == currentId && taskId > 0L) {
         views.setImageViewResource(R.id.select_task, R.drawable.vert_toggle_on)
@@ -128,6 +127,7 @@ class TimesheetAppWidgetProviderK : AppWidgetProvider() {
       
       views.setTextViewText(R.id.current_task, db.getTaskName(taskId))
       
+      db.close()
 
       // Tell the AppWidgetManager to perform an update on the current
       // widget.
