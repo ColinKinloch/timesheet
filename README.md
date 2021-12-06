@@ -1,6 +1,6 @@
 # Timesheet DX
 
-<img alt="Timesheet DX Icon" src="https://github.com/ColinKinloch/timesheetdx/blob/master/app/src/main/res/mipmap/ic_launcher.png?raw=true" width="128px" />
+<img alt="Timesheet DX Icon" src="https://github.com/ColinKinloch/timesheetdx/blob/2fa215e32252b3f747df56350bb8e75828e58a00/app/src/main/res/mipmap/ic_launcher.png?raw=true" width="128px" />
 
 An exciting evolution in timesheeting with context buttonless technology.
 
