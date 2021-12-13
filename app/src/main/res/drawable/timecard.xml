@@ -6,26 +6,27 @@
   android:viewportHeight="54"
   >
   <!-- Timecard -->
-  <group android:translateX="19" android:translateY="12" >
+  <group android:translateX="19" android:translateY="13" >
     <!-- Body -->
     <path
       android:fillColor="#ffd794"
       android:pathData="
         M 1,0
         a 2 2 90 0 0 -2 2
-        v 22
+        v 21
         a 2 2 90 0 0 2 2
         h 14
         a 2 2 90 0 0 2 -2
-        v -22
+        v -21
         a 2 2 90 0 0 -2 -2
         z
         "
       />
+    <!-- Lines -->
     <path
       android:strokeColor="#000" android:strokeWidth="1"
       android:pathData="
-        M   1,5
+        M   1,4
         h  14
         m -14,4
         h  14
